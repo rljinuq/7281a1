@@ -1,0 +1,13 @@
+# Ignore virtual environments
+venv/
+.venv/
+
+# Ignore large model/data files
+*.pth
+*.pt
+Data/
+outputs/
+
+# Ignore Python caches and system files
+__pycache__/
+.DS_Store
