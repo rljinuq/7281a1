@@ -1,13 +1,13 @@
-# Ignore virtual environments
+# Virtual environments
 venv/
 .venv/
 
-# Ignore large model/data files
+# Model weights and data
 *.pth
 *.pt
 Data/
 outputs/
 
-# Ignore Python caches and system files
+# Cache / system files
 __pycache__/
 .DS_Store
