@@ -60,7 +60,7 @@ def load_model(ckpt_path=MODEL_OUT):
         state = ckpt.get("state_dict", ckpt)
         model.load_state_dict(state, strict=True)
     except Exception as e:
-        print(f"⚠️ 模型加载失败: {e}，将使用未训练的初始化模型用于演示。")
+        raise RuntimeError(f"无法加载模型权重: {ckpt_path}") from e
 
     model.eval()
     # 预热

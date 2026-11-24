@@ -73,4 +73,4 @@ The scripts retain local dataset and checkpoint paths. The configured `Data/` di
 
 Gemini reads the optional `GEMINI_API_KEY` environment variable. With no key, the existing explanation callback returns a configuration message. When enabled, Gemini receives the MRI overlay and a prompt containing the predicted label. Classification and Grad-CAM are local; text generation uses the external service and may be inaccurate.
 
-The Chinese interface can continue with an initialised classifier after a checkpoint-loading failure and prints a warning. Results in that state do not come from the saved checkpoint.
+The Chinese interface stops with an error if its trained checkpoint cannot be loaded.
