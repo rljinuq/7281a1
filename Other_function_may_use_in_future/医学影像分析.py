@@ -24,7 +24,7 @@ from tqdm import tqdm
 DATA_DIR   = "/Users/lingjieruan/Desktop/7281a1/Data"  # ← 改为你的路径
 IMG_SIZE   = 128
 BATCH_SIZE = 64
-EPOCHS     = 3               # 先出一个可交差的 baseline
+EPOCHS     = 3               # 二分类基线训练轮数 / binary baseline training epochs
 LR         = 2e-3
 SEED       = 2025
 CAP_PER_CLASS = 6000         # 每类上限（对称采样：Normal & Demented 各 CAP_PER_CLASS）

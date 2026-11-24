@@ -1,4 +1,6 @@
-# pip install kagglehub
+"""Download the Kaggle imagesoasis dataset and print its local cache path."""
+
 import kagglehub
-path = kagglehub.dataset_download("ninadaithal/imagesoasis")  # 就是你截图里的名字
+
+path = kagglehub.dataset_download("ninadaithal/imagesoasis")
 print("Downloaded to:", path)

@@ -1,5 +1,7 @@
-# gradcam_only.py  —  仅用已有 .pth 批量生成 Grad-CAM
-import os, random
+"""Generate batch Grad-CAM overlays from an existing four-class checkpoint."""
+
+import os
+import random
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -76,7 +78,7 @@ def gradcam_one(model, img_path, alpha=0.45, out_path=None):
     logits[0, pred].backward()
 
     feats = conv_feats[-1].cpu().numpy()[0]   # [C, H, W]
-    grads = conv_grads[-1].cpu().numpy()      # [C, H, W]
+    grads = conv_grads[-1].cpu().numpy()[0]   # [1,C,H,W] -> [C,H,W]
     weights = grads.mean(axis=(1, 2))
     cam = np.zeros(feats.shape[1:], dtype=np.float32)
     for c, w in enumerate(weights): cam += w * feats[c]
@@ -93,7 +95,8 @@ def gradcam_one(model, img_path, alpha=0.45, out_path=None):
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
     Image.fromarray(overlay).save(out_path)
 
-    fwd_handle.remove(); bwd_handle.remove()
+    fwd_handle.remove()
+    bwd_handle.remove()
     return out_path, pred
 
 def canonicalize(name: str):

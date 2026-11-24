@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 
+# Manually entered values; this script does not read training logs.
 epochs = list(range(1, 9))
 train_acc = [0.679,0.805,0.839,0.872,0.886,0.897,0.911,0.925]
 val_f1    = [0.180,0.357,0.407,0.745,0.787,0.831,0.850,0.872]
